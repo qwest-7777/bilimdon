@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  {% include 'includes/head.html' %}
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+  <!-- /Preloader -->
+  {% include 'includes/header.html' %}
+  
+    {% block content %}
+    {% endblock %}
+
+
+    {% include 'includes/footer.html' %}
+    {% include 'includes/plugins.html' %}
+
+  </body>
+</html>

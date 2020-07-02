@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<!-- Contact Area Start -->
+    <section class="contact-our-area bg-gradient-overlay section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <!-- Heading -->
+                <div class="col-12">
+                    <div class="section-heading-2 text-center wow fadeInUp" data-wow-delay="300ms">
+                        <p></p>
+                        <h4>Registration</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-between">
+                
+
+                <div class="col-12 col-sm-8">
+                    <!-- Contact Form -->
+                    <div class="contact_from_area mb-100 clearfix wow fadeInUp" data-wow-delay="300ms">
+                        <div class="contact_form">
+
+                            <form action="{% url 'signup' %}" method="post" id="main_contact_form">
+                               
+                                {{ form.as_p }}
+                                {% csrf_token %}
+                                <div class="col-12">
+                                    <button type="submit" class="btn confer-btn">Registratsiya Qilish<i class="zmdi zmdi-long-arrow-right"></i></button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Area End -->
+
+
+{% endblock %}
