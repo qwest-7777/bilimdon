@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+{% load l10n %}
 
 <!-- Header Area Start -->
 <header class="header-area">
@@ -24,44 +26,42 @@
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul id="nav">
-                            <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                            <!-- <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="index.html">- Home</a></li>
-                                    <li><a href="about.html">- About Us</a></li>
-                                    <li><a href="speakers.html">- Speakears</a></li>
-                                    <li><a href="schedule.html">- Schedule</a></li>
-                                    <li><a href="tickets.html">- Tickets</a></li>
-                                    <li><a href="blog.html">- Blog</a></li>
-                                    <li><a href="single-blog.html">- Single Blog</a></li>
-                                    <li><a href="contact.html">- Contact</a></li>
-                                    <li><a href="#">- Dropdown</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">- Dropdown Item</a></li>
-                                            <li><a href="#">- Dropdown Item</a></li>
-                                            <li><a href="#">- Dropdown Item</a></li>
-                                            <li><a href="#">- Dropdown Item</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li> -->
-                            <li><a href="speakers.html">Speakears</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li class="active"><a href="{% url 'home' %}">{% trans "Bosh sahifa" %}</a></li>
+                            
+                            <li><a href="{% url 'contacts' %}">{% trans "Muloqot ma'lumoti" %}</a></li>
                             {% if user.is_authenticated %}
 
-                            <li><a href="contact.html">Hello {{user.username}}</a></li>
-                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                            <li><a href="{% url 'user_page' %}">{% trans "Salom"%} {{user.username}}</a></li>
+                            <li><a href="{% url 'logout' %}">{% trans "Logout"%}</a></li>
 
-                        </ul>
+                        
 
                         
                         {% else %}
-                            <li><a href="{% url 'login' %}">Login</a></li>
-                            <li><a href="{% url 'signup' %}">Signup</a></li>
+                            <li><a href="{% url 'login' %}">{% trans "Login" %}</a></li>
+                            <li><a href="{% url 'signup' %}">{% trans "Registratsiya"%}</a></li>
 
-                        </ul>
+                        
                         {% endif %}
+
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <li>
+                                <a href="/{{ language.code }}{{ request.get_full_path|slice:'3:' }}"
+                                   class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}"
+                                   lang="{{ language.code }}">
+                                    {{ language.name_local }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                        
+
+
+                    </ul>
+
+
                     </div>
                     <!-- Nav End -->
                 </div>

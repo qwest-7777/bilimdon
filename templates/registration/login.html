@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% load i18n %}
+{% load l10n %}
+
 
 {% block title %}Login{% endblock %}
 
@@ -12,7 +15,7 @@
           <div class="col-12">
               <div class="section-heading-2 text-center wow fadeInUp" data-wow-delay="300ms">
                   <p></p>
-                  <h4>Login</h4>
+                  <h4>{% trans "Login" %}</h4>
               </div>
           </div>
       </div>
@@ -30,12 +33,12 @@
                     
                     <form action="{% url 'login' %}" method="post" id="main_contact_form">
                         {% if error is 1 %}
-                                <p>Wrong login or password</p>
+                                <p>{% trans "Noto'g'ri login yoki paro'l" %}</p>
                         {% endif %}
                         {{ form.as_p }}
                         {% csrf_token %}
                         <div class="col-12">
-                            <button type="submit" class="btn confer-btn">Send Message <i class="zmdi zmdi-long-arrow-right"></i></button>
+                            <button type="submit" class="btn confer-btn">{% trans "Login" %} <i class="zmdi zmdi-long-arrow-right"></i></button>
                         </div>
                     </form>
                     

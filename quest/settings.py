@@ -1,5 +1,7 @@
 
 import os
+import django.conf.locale
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,12 +20,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'question.apps.QuestionConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'crispy_forms',
     'click.apps.ClickConfig',
     'payments',
@@ -35,12 +39,14 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pinax.referrals.middleware.SessionJumpingMiddleware',
+
 ]
 
 ROOT_URLCONF = 'quest.urls'
@@ -97,9 +103,23 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz-UZ'
 
-TIME_ZONE = 'UTC'
+LANGUAGES = [
+	('ru', _("Русский")),
+	('uz', _("O'zbekcha")),
+]
+
+LANGUAGE_COOKIE_NAME = 'lang'
+
+LOCALE_PATHS = (
+	os.path.join(BASE_DIR, 'locale'),
+)
+
+LANG_INFO = django.conf.locale.LANG_INFO.copy()
+
+
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 

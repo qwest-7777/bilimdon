@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+
+{% block title %}Sizningning statistikangiz{% endblock %}
+
+{% block content %}
+
+    <!-- Preloader 
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+     /Preloader -->
+
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area bg-img bg-gradient-overlay jarallax" style="background-image: url({% static 'img/bg-img/6.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2 class="page-title">{{ user.username }}</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ user.username }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- What We offer Area Start -->
+    <section class="what-we-offer-area section-padding-100-70">
+        <div class="container">
+            <div class="row">
+                <!-- Heading -->
+                <div class="col-12">
+                    <div class="section-heading-3 text-center wow fadeInUp" data-wow-delay="300ms">
+                        <p>Sayt statistikasi</p>
+                        <h4>Sizning fa'olligingiz</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single We Offer Area -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="single-we-offer-content text-center wow fadeInUp" data-wow-delay="0.3s">
+                        <!-- Icon -->
+                        <div class="offer-icon">
+                            <img src="img/core-img/icon.png" alt="">
+                        </div>
+                        <h5>{{ score.scores }}</h5>
+                        <p>Sizning umumiy yeg'ilgan ballariz</p>
+                    </div>
+                </div>
+
+                <!-- Single We Offer Area -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="single-we-offer-content text-center wow fadeInUp" data-wow-delay="0.3s">
+                        <!-- Icon -->
+                        <div class="offer-icon">
+                            <img src="img/core-img/icon-2.png" alt="">
+                        </div>
+                        <h5>{{cash}}</h5>
+                        <p>Ballaringizni so'mga quymati</p>
+                    </div>
+                </div>
+
+                <!-- Single We Offer Area -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="single-we-offer-content text-center wow fadeInUp" data-wow-delay="0.3s">
+                        <!-- Icon -->
+                        <div class="offer-icon">
+                            <img src="img/core-img/icon-3.png" alt="">
+                        </div>
+                        <h5>{{ score.right_answer }}</h5>
+                        <p>Umumiy tog'ri belgilangan javoblar</p>
+                    </div>
+                </div>
+
+                <!-- Single We Offer Area -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="single-we-offer-content text-center wow fadeInUp" data-wow-delay="0.3s">
+                        <!-- Icon -->
+                        <div class="offer-icon">
+                            <img src="img/core-img/icon-4.png" alt="">
+                        </div>
+                        <h5>{{ score.false_answer }}</h5>
+                        <p>Notog'ri belgilangan javoblar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- What We offer Area End -->
+
+{% endblock %}

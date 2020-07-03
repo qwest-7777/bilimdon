@@ -122,10 +122,10 @@ ul {
     top: 0;
     left: 0;
     z-index: -1;
-    background: #c63fa4;
-    background-image: -moz-linear-gradient(120deg, #df42b1 0%, #505add 100%);
-    background-image: -webkit-linear-gradient(120deg, #df42b1 0%, #505add 100%);
-    background-image: -ms-linear-gradient(120deg, #df42b1 0%, #505add 100%);
+    background: #c63fa4b7;
+    background-image: -moz-linear-gradient(120deg, #df42b08a 0%, #5059dd96 100%);
+    background-image: -webkit-linear-gradient(120deg, #df42b096 0%, #5059dd80 100%);
+    background-image: -ms-linear-gradient(120deg, #df42b088 0%, #5059dd7c 100%);
     opacity: 0.9; }
 
 .bg-gradient-overlay-2 {
@@ -1004,11 +1004,16 @@ input:required {
         margin-right: -15px; } }
     .footer-area .row .col-12 {
       padding-left: 30px;
-      padding-right: 30px; }
+      padding-right: 30px;
+      margin-left: auto;
+      margin-right: auto; }
       @media only screen and (max-width: 767px) {
         .footer-area .row .col-12 {
           padding-left: 15px;
-          padding-right: 15px; } }
+          padding-right: 15px;
+          margin-left: auto;
+          margin-right: auto;
+           } }
 
 .main-footer-area {
   position: relative;
@@ -1019,7 +1024,7 @@ input:required {
     margin-bottom: 20px; }
   .main-footer-area .single-footer-widget p {
     color: #9293bc;
-    font-size: 14px; }
+    font-size: 18px; }
     .main-footer-area .single-footer-widget p i {
       margin-right: 5px; }
   .main-footer-area .single-footer-widget .footer-logo {
@@ -1054,7 +1059,7 @@ input:required {
     z-index: 1; }
     .main-footer-area .single-footer-widget .footer-nav li a {
       color: #9293bc;
-      font-size: 14px;
+      font-size: 18px;
       margin-bottom: 15px;
       display: inline-block;
       -webkit-transition-duration: 500ms;
@@ -2620,7 +2625,7 @@ input:required {
     .contact-our-area .contact-information .single-contact-info:last-child {
       margin-bottom: 0; }
   .contact-our-area .contact_from_area {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.178);
     padding: 30px;
     border-radius: 10px;
     width: 70%;

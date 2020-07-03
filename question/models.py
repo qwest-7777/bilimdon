@@ -16,11 +16,20 @@ class CustomUser(AbstractUser):
 class Payment(BasePayment):
     pass
 
+  
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
+    LANG_CHOICES = (
+    ('uz', "O'zbekcha"),
+    ('ru', 'Русский'),
+    )
+    question_language = models.CharField(max_length=2,
+        choices=LANG_CHOICES,
+        default="UZ",)
 
+  
 
     def __str__(self):
         return self.question_text
@@ -50,6 +59,7 @@ class Statistic(models.Model):
 class Answered(models.Model):
     answered_user = models.CharField(max_length=50, null=True)
     question = models.ForeignKey(Question, null=True, on_delete=models.CASCADE)
+    failed_answer = models.BooleanField(null=True, default=False)
     answered_time = models.DateTimeField(auto_now_add=True)
 
 

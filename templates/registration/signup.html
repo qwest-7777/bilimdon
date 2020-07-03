@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% load i18n %}
+{% load l10n %}
+
 
 {% block title %}Sign Up{% endblock %}
 {% load crispy_forms_tags %}
@@ -14,7 +17,7 @@
                 <div class="col-12">
                     <div class="section-heading-2 text-center wow fadeInUp" data-wow-delay="300ms">
                         <p></p>
-                        <h4>Registration</h4>
+                        <h4>{% trans "Registratsiya" %}</h4>
                     </div>
                 </div>
             </div>
@@ -32,7 +35,7 @@
                                 {{ form.as_p }}
                                 {% csrf_token %}
                                 <div class="col-12">
-                                    <button type="submit" class="btn confer-btn">Registratsiya Qilish<i class="zmdi zmdi-long-arrow-right"></i></button>
+                                    <button type="submit" class="btn confer-btn">{% trans 'Registratsiya Qilish' %}<i class="zmdi zmdi-long-arrow-right"></i></button>
                                 </div>
                             </form>
 
